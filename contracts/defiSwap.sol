@@ -22,10 +22,7 @@ contract defiSwap {
     function getRouter() internal view returns(address){
         return iDAO(iBASE(protocolToken).DAO()).ROUTER();
     }
-    function getNumber() external pure returns (uint256){
-        return 6;
-    }
-
+   
     function getX(uint256 a, address x) internal {
         TransferHelper.safeTransferFrom(x, msg.sender, address(this), a);
     }
