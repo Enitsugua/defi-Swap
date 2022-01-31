@@ -5,22 +5,24 @@ import "./iBEP20.sol";
 import "./iROUTER.sol";
 import "./SafeERC20.sol";
 import "./Auth.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract defiSwap {
-    using SafeERC20 for iBEP20;  
     address public protocolToken;
     Auth private _auth;
-
-    constructor(address token) {
-        protocolToken = token; 
-        _auth = new Auth(msg.sender);
-    }
-
+    uint256 public storeme;
     receive() external payable {}
 
+    function init(address token) external {
+        protocolToken = token; 
+        storeme = 9;
+        _auth = new Auth(msg.sender);
+    }
+    
     function getRouter() internal view returns(address){
         return iDAO(iBASE(protocolToken).DAO()).ROUTER();
+    }
+    function getme() public view returns (uint256){
+        return storeme;
     }
    
     function getX(uint256 a, address x) internal {

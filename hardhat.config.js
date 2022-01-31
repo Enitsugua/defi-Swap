@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+require('@openzeppelin/hardhat-upgrades');
 
 // hardhat.config.js
 require('@nomiclabs/hardhat-ethers');
@@ -21,8 +22,8 @@ const { alchemyApiKey, mnemonic } = require('./secrets.json');
 module.exports = {
   solidity: "0.8.3",
       networks: {
-         rinkeby: {
-           url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
+         TestNet: {
+           url: `https://data-seed-prebsc-1-s1.binance.org:8545`,
            accounts: { mnemonic: mnemonic },
          },
        },
