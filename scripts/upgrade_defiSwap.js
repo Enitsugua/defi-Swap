@@ -4,7 +4,7 @@ const { ethers, upgrades } = require('hardhat');
 async function main () {
   const DefiSwap = await ethers.getContractFactory('defiSwap');
   console.log('Upgrading defiSwap...');
-  await upgrades.upgradeProxy('0x0d0526D25BC1969C37BC8Ce8f58071F004eBd057', DefiSwap);
+  await upgrades.upgradeProxy('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', DefiSwap);
   console.log('DefiSwap upgraded');
 }
 
